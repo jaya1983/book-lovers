@@ -21,6 +21,7 @@ var displaySearchResults = function (data) {
   var pageLimt = 10;
   for (var index = 0; index < pageLimt; index++) {
     var book = data.items[index];
+    console.log(index);
 
     var individualBookContainerDivEl = document.createElement("div");
     individualBookContainerDivEl.className = "individual-book-container";
@@ -33,6 +34,7 @@ var displaySearchResults = function (data) {
     var thumbnailDivEl = document.createElement("div");
     thumbnailDivEl.className = "uk-width-auto";
 
+    
     // get book cover img
     var thumbnailEl = document.createElement("img");
     thumbnailEl.id = "book-cover-img";
@@ -58,8 +60,13 @@ var displaySearchResults = function (data) {
     bookTitleEl.innerHTML = getBookTitle;
 
     // <p> for author name inside of book div
-    var getAuthorName =
-      book.volumeInfo?.authors[0] || "No Author Name found for this book";
+    var authorsArr = book.volumeInfo.authors;
+    var getAuthorName = "(Unknown Author)"
+    if (authorsArr) {
+        var getAuthorName =
+        book.volumeInfo?.authors[0] || "(Unknown Author)";
+    }
+    
     var authorNameEl = document.createElement("p");
     authorNameEl.id = "author-name";
     authorNameEl.classList = "uk-margin-remove-top";
@@ -84,8 +91,7 @@ var displaySearchResults = function (data) {
     var learnMoreEl = document.createElement("a");
     learnMoreEl.id = "learn-more";
     learnMoreEl.setAttribute("target", "_blank");
-    learnMoreEl.setAttribute("href", "./book-page.html?vol_id=" + book.id);
-
+    learnMoreEl.setAttribute("href", "./book-page.html?vol_id=" + book.id);    
     learnMoreEl.innerHTML = "Learn more....";
 
     var dividerEl = document.createElement("hr");
