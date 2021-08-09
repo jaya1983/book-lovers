@@ -121,7 +121,7 @@ $("#my-favbooks-btn").on("click", function (e) {
   favBooksDiv.innerHTML = " ";
   var bookId;
 
-  for (var index = 0; index < retreiveBooks.length; index++) {
+  for (var index = 0; index < retreiveBooks.length -1 ; index++) {
     /* create a paragraph element to store the title */
     var title = document.createElement("p");
     title.classList.add("book-title");
