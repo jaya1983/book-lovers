@@ -1,7 +1,7 @@
 # Book-Lovers
 
 ## Live Application
-https://chaudharys1.github.io/book-lovers/
+https://jaya1983.github.io/book-lovers/
 
 ## Description
 
